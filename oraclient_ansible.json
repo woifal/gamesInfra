@@ -33,7 +33,7 @@
         [
             {
                 "type": "docker-tag",
-                "repository": "nodeplusora",
+                "repository": "woifal/nodeplusora",
                 "tag": "0.1"
             }
         ]

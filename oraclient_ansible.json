@@ -1,0 +1,41 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "nodejsansible:0.1",
+            "commit": "true",
+            "pull": "false",
+            "changes": [
+                "ENTRYPOINT cd /tmp/gamesBackend && npm run start"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "files/instantclient-basic-linux.x64-21.1.0.0.0.zip",
+            "destination": "/tmp/instantclient-basic-linux.x64-21.1.0.0.0.zip"
+        },
+        {
+            "type": "file",
+            "source": "files/Wallet_gamesBackend.zip",
+            "destination": "/tmp/Wallet_gamesBackend.zip"
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "oraclient_ansible.yml",
+            "extra_arguments": [
+                "-vvv"
+            ]
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "docker-tag",
+                "repository": "nodeplusora",
+                "tag": "0.1"
+            }
+        ]
+    ]
+}

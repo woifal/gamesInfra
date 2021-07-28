@@ -1,0 +1,29 @@
+{
+    "variables": {
+        "docker_image_name": "packerpocbaseimage",
+        "docker_image_version": "20.1"
+    },
+    "builders": [
+        {
+            "type": "docker",
+            "image": "ubuntu:20.04",
+            "commit": "true",
+            "pull": "true"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "install-ansible.sh"
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "docker-tag",
+                "repository": "packerpocbaseimage",
+                "tag": "20.1"
+            }
+        ]
+    ]
+}

@@ -1,0 +1,58 @@
+---
+
+    - hosts: localhost
+
+      tasks:
+
+# oracle client installation
+      - name: install libaio1
+        shell: |
+          apt-get update
+          apt-get install -y libaio1
+          apt-get install -y unzip
+          apt-get install -y vim
+
+        register: apt_get_libaio1
+      - debug: var=apt_get_libaio1
+
+      - name: extract oracle client
+        shell: |
+          cd /tmp
+          unzip instantclient-basic-linux.x64-21.1.0.0.0.zip
+        register: unzip_ora_client
+      - debug: var=unzip_ora_client
+
+      - name: extract wallet
+        shell: |
+          cp /tmp/Wallet_gamesBackend.zip /tmp/instantclient_21_1/network/admin/.
+          cd /tmp/instantclient_21_1/network/admin
+          unzip -o Wallet_gamesBackend.zip
+        register: unzip_wallet
+      - debug: var=unzip_wallet
+
+      - name: set oracle client LD config
+        shell: |
+          sh -c "echo /tmp/instantclient_21_1 > \
+            /etc/ld.so.conf.d/oracle-instantclient.conf"
+          ldconfig
+          export LD_LIBRARY_PATH=/tmp/instantclient_21_1:$LD_LIBRARY_PATH
+          export PATH=/tmp/instantclient_21_1:$PATH
+          echo 'export LD_LIBRARY_PATH=/tmp/instantclient_21_1:$LD_LIBRARY_PATH' >>~/.bashrc
+          echo 'export PATH=/tmp/instantclient_21_1:$PATH' >>~/.bashrc
+        register: ld_config
+      - debug: var=ld_config
+
+
+#npm install
+#export PORT=9000
+
+#npm run start
+
+      #     - name: install npm
+ #       apt:
+ #         name: npm
+
+#      - name: Insert Index Page
+#        template:
+#          src: /tmp/index.html
+#          dest: /var/www/html/index.nginx-debian.html

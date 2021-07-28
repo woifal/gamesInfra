@@ -1,0 +1,53 @@
+---
+
+    - hosts: localhost
+
+# curl
+      tasks:
+      - name: install curl
+        apt:
+          name: curl
+
+# npm
+      - name: install npm
+        shell: |
+          apt-get update
+          apt-get install -y libssl1.0-dev
+          apt-get install -y nodejs-dev
+          apt-get install -y node-gyp
+          apt-get install -y libnode-dev
+          apt-get install -y libnode64
+          apt-get install -y node-gyp
+          apt-get install -y npm
+          apt-get update
+        register: apt_gets
+      - debug: var=apt_gets
+
+      - name: get npm version
+        shell: |
+          npm --version
+        register: npm_version
+      - debug: var=npm_version
+
+# nodejs
+      - name: get nodejs 16 deliverables.
+        shell: |
+          curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+
+      - name: install nodejs
+        apt:
+          name: nodejs
+          state: latest
+
+# checks
+      - name: get nodejs version
+        shell: |
+          node --version
+        register: node_version
+      - debug: var=node_version
+
+      - name: show backend sources
+        shell: |
+          ls -ltra /tmp/gamesBackend
+        register: gamesBackend_ls
+      - debug: var=gamesBackend_ls

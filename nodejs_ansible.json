@@ -2,17 +2,12 @@
     "builders": [
         {
             "type": "docker",
-            "image": "packerpocbaseimage:20.1",
+            "image": "packerpocbaseimage:0.2",
             "commit": "true",
             "pull": "false"
         }
     ],
     "provisioners": [
-        {
-            "type": "file",
-            "source": "../../gamesBackend",
-            "destination": "/tmp/gamesBackend"
-        },
         {
             "type": "ansible-local",
             "playbook_file": "nodejs_ansible.yml"
@@ -23,7 +18,7 @@
             {
                 "type": "docker-tag",
                 "repository": "nodejsansible",
-                "tag": "0.1"
+                "tag": "0.3"
             }
         ]
     ]

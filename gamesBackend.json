@@ -1,0 +1,29 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "woifal/nodeplusora:0.2",
+            "commit": "true",
+            "pull": "false",
+            "changes": [
+                "ENTRYPOINT cd /tmp/gamesBackend && npm run start"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "../gamesBackend",
+            "destination": "/tmp/gamesBackend"
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "docker-tag",
+                "repository": "woifal/gamesbackend",
+                "tag": "0.2"
+            }
+        ]
+    ]
+}

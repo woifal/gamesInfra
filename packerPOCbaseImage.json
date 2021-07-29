@@ -1,8 +1,4 @@
 {
-    "variables": {
-        "docker_image_name": "packerpocbaseimage",
-        "docker_image_version": "20.1"
-    },
     "builders": [
         {
             "type": "docker",
@@ -22,7 +18,7 @@
             {
                 "type": "docker-tag",
                 "repository": "packerpocbaseimage",
-                "tag": "20.1"
+                "tag": "0.2"
             }
         ]
     ]

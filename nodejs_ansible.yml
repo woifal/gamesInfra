@@ -46,8 +46,3 @@
         register: node_version
       - debug: var=node_version
 
-      - name: show backend sources
-        shell: |
-          ls -ltra /tmp/gamesBackend
-        register: gamesBackend_ls
-      - debug: var=gamesBackend_ls

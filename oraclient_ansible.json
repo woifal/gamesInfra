@@ -2,12 +2,9 @@
     "builders": [
         {
             "type": "docker",
-            "image": "nodejsansible:0.1",
+            "image": "nodejsansible:0.3",
             "commit": "true",
-            "pull": "false",
-            "changes": [
-                "ENTRYPOINT cd /tmp/gamesBackend && npm run start"
-            ]
+            "pull": "false"
         }
     ],
     "provisioners": [
@@ -34,7 +31,7 @@
             {
                 "type": "docker-tag",
                 "repository": "woifal/nodeplusora",
-                "tag": "0.1"
+                "tag": "0.2"
             }
         ]
     ]

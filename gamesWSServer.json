@@ -2,27 +2,27 @@
     "builders": [
         {
             "type": "docker",
-            "image": "woifal/nodeplusora:0.2",
+            "image": "nodejsansible:0.3",
             "commit": "true",
             "pull": "false",
             "changes": [
-                "ENTRYPOINT cd /tmp/gamesBackend && npm run start"
+                "ENTRYPOINT cd /tmp/gamesWSServer && npm run start"
             ]
         }
     ],
     "provisioners": [
         {
             "type": "file",
-            "source": "../gamesBackend",
-            "destination": "/tmp/gamesBackend"
+            "source": "../gamesWSServer",
+            "destination": "/tmp/gamesWSServer"
         }
     ],
     "post-processors": [
         [
             {
                 "type": "docker-tag",
-                "repository": "woifal/gamesbackend",
-                "tag": "0.4"
+                "repository": "woifal/gameswsserver",
+                "tag": "0.1"
             }
         ]
     ]

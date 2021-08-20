@@ -1,0 +1,36 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "nodejsansible:0.3",
+            "commit": "true",
+            "pull": "false",
+            "changes": [
+                "ENTRYPOINT cd /tmp/gamesApp && npm run start"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "../gamesApp",
+            "destination": "/tmp/gamesApp"
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "gamesApp_ansible.yml",
+            "extra_arguments": [
+                "-vvv"
+            ]
+        }
+    ],
+    "post-processors": [
+        [
+            {
+                "type": "docker-tag",
+                "repository": "woifal/gamesapp",
+                "tag": "0.5"
+            }
+        ]
+    ]
+}

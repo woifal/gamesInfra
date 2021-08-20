@@ -1,0 +1,14 @@
+---
+
+    - hosts: localhost
+
+      tasks:
+
+      - name: build next.js app
+        shell: |
+          cd /tmp/gamesApp
+          #npm install
+          npm run build
+        register: build_nextjs
+      - debug: var=build_nextjs
+

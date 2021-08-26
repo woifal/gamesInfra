@@ -14,11 +14,6 @@
             "destination": "/tmp/instantclient-basic-linux.x64-21.1.0.0.0.zip"
         },
         {
-            "type": "file",
-            "source": "files/Wallet_gamesBackend.zip",
-            "destination": "/tmp/Wallet_gamesBackend.zip"
-        },
-        {
             "type": "ansible-local",
             "playbook_file": "oraclient_ansible.yml",
             "extra_arguments": [
@@ -30,8 +25,8 @@
         [
             {
                 "type": "docker-tag",
-                "repository": "woifal/nodeplusora",
-                "tag": "0.2"
+                "repository": "woifal/oraclient",
+                "tag": "1.3"
             }
         ]
     ]

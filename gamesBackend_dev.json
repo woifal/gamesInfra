@@ -2,11 +2,11 @@
     "builders": [
         {
             "type": "docker",
-            "image": "woifal/orawallet:1.3",
+            "image": "woifal/orawallet_dev:1.3",
             "commit": "true",
             "pull": "false",
             "changes": [
-                "ENTRYPOINT cd /tmp/gamesBackend && npm run startProd"
+                "ENTRYPOINT cd /tmp/gamesBackend && npm run start"
             ]
         }
     ],
@@ -21,7 +21,7 @@
         [
             {
                 "type": "docker-tag",
-                "repository": "woifal/gamesbackend",
+                "repository": "woifal/gamesbackend_dev",
                 "tag": "1.3"
             }
         ]

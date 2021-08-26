@@ -1,0 +1,11 @@
+---
+    - hosts: localhost
+      tasks:
+      - name: extract wallet
+        shell: |
+          cp /tmp/Wallet_gamesBackend.zip /tmp/instantclient_21_1/network/admin/.
+          cd /tmp/instantclient_21_1/network/admin
+          unzip -o Wallet_gamesBackend.zip
+        register: unzip_wallet
+      - debug: var=unzip_wallet
+

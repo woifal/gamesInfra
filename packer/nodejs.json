@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "packerpocbaseimage:0.2",
+            "image": "packerpocbaseimage:1.3",
             "commit": "true",
             "pull": "false"
         }
@@ -10,7 +10,7 @@
     "provisioners": [
         {
             "type": "ansible-local",
-            "playbook_file": "nodejs_ansible.yml"
+            "playbook_file": "ansible/nodejs_ansible.yml"
         }
     ],
     "post-processors": [
@@ -18,7 +18,7 @@
             {
                 "type": "docker-tag",
                 "repository": "nodejsansible",
-                "tag": "0.3"
+                "tag": "1.3"
             }
         ]
     ]

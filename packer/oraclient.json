@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "nodejsansible:0.3",
+            "image": "nodejsansible:1.3",
             "commit": "true",
             "pull": "false"
         }
@@ -15,7 +15,7 @@
         },
         {
             "type": "ansible-local",
-            "playbook_file": "oraclient_ansible.yml",
+            "playbook_file": "ansible/oraclient.yml",
             "extra_arguments": [
                 "-vvv"
             ]

@@ -10,12 +10,12 @@
     "provisioners": [
         {
             "type": "file",
-            "source": "files/Wallet_gamesBackend.zip",
+            "source": "files/Wallet_gamesDevDB.zip",
             "destination": "/tmp/Wallet_gamesBackend.zip"
         },
         {
             "type": "ansible-local",
-            "playbook_file": "orawallet.yml",
+            "playbook_file": "ansible/orawallet.yml",
             "extra_arguments": [
                 "-vvv"
             ]
@@ -25,9 +25,9 @@
         [
             {
                 "type": "docker-tag",
-                "repository": "woifal/orawallet",
+                "repository": "woifal/orawallet_dev",
                 "tag": "1.3"
-            }
+           }
         ]
     ]
 }

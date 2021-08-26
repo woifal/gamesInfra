@@ -2,20 +2,23 @@
     "builders": [
         {
             "type": "docker",
-            "image": "woifal/oraclient:1.3",
+            "image": "nodejsansible:1.3",
             "commit": "true",
-            "pull": "false"
+            "pull": "false",
+            "changes": [
+                "ENTRYPOINT cd /tmp/gamesApp && npm run start"
+            ]
         }
     ],
     "provisioners": [
         {
             "type": "file",
-            "source": "files/Wallet_gamesDevDB.zip",
-            "destination": "/tmp/Wallet_gamesBackend.zip"
+            "source": "../gamesApp",
+            "destination": "/tmp/gamesApp"
         },
         {
             "type": "ansible-local",
-            "playbook_file": "orawallet.yml",
+            "playbook_file": "ansible/gamesApp.yml",
             "extra_arguments": [
                 "-vvv"
             ]
@@ -25,9 +28,9 @@
         [
             {
                 "type": "docker-tag",
-                "repository": "woifal/orawallet_dev",
+                "repository": "woifal/gamesapp",
                 "tag": "1.3"
-           }
+            }
         ]
     ]
 }

@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "nodejsansible:0.3",
+            "image": "nodejsansible:1.3",
             "commit": "true",
             "pull": "false",
             "changes": [

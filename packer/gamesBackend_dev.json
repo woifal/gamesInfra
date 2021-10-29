@@ -22,7 +22,7 @@
             {
                 "type": "docker-tag",
                 "repository": "woifal/gamesbackend_dev",
-                "tag": "1.6"
+                "tag": "1.8"
             }
         ]
     ]

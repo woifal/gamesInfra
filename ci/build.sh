@@ -1,6 +1,6 @@
-packer build packer/packerPOCbaseImage.json
+#packer build packer/packerPOCbaseImage.json
 
-packer build packer/nodejs.json
+#packer build packer/nodejs.json
 # NEW BASE BUILDS
 #!!!!
 #echo "\n\n\n\n BUILDING oraclient"

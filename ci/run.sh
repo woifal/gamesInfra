@@ -1,4 +1,3 @@
-
 alias containercmd=docker
 
 # !!!!

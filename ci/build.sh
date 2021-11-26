@@ -14,8 +14,8 @@
 # NEW STANDARD BUILDS
 #echo "\n\n\n\n BUILDING gamesBackend_dev"
 #packer build packer/gamesBackend_dev.json || return 1
-echo "\n\n\n\n BUILDING gamesBackend"
-packer build packer/gamesBackend.json || return 1
+#echo "\n\n\n\n BUILDING gamesBackend"
+#packer build packer/gamesBackend.json || return 1
 
 #echo "\n\n\n\n BUILDING gamesWSServer"
 #packer build packer/gamesWSServer.json || return 1

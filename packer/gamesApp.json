@@ -29,7 +29,7 @@
             {
                 "type": "docker-tag",
                 "repository": "woifal/gamesapp",
-                "tag": "1.13"
+                "tag": "1.14"
             }
         ]
     ]

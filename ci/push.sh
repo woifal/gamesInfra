@@ -2,4 +2,4 @@
 #docker push woifal/gamesbackend_dev:1.9
 
 #docker push woifal/gameswsserver:1.5
-docker push woifal/gamesapp:1.13
+podman push localhost/gamesapp:1.18 docker.io/woifal/gamesapp:1.18

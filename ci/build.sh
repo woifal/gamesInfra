@@ -20,6 +20,13 @@
 #echo "\n\n\n\n BUILDING gamesWSServer"
 #packer build packer/gamesWSServer.json || return 1
 
-echo "\n\n\n\n BUILDING gamesApp"
-packer build packer/gamesApp.json || return 1
+#echo "\n\n\n\n BUILDING gamesApp"
+#packer build packer/gamesApp.json || return 1
+
+cd buildah
+#. ./nodejs.sh
+. ./gamesBackend.sh
+. ./gamesApp.sh
+. ./gamesWSServer.sh
+cd ..
 

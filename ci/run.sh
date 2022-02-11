@@ -4,10 +4,10 @@ alias containercmd=podman
 #sudo iptables -I INPUT -m state --state NEW -p tcp --dport 9001 -j ACCEPT
 #sudo iptables -I INPUT -m state --state NEW -p tcp --dport 9002 -j ACCEPT
 
-containercmd container rm -f gamesbackend
-containercmd run -d -it --name gamesbackend -e dbPassword_prod=${dbPassword_prod}  -p 9001:9000 localhost/gamesbackend:1.16
-containercmd run -d -it --name gamesbackend --entrypoint /bin/bash localhost/gamesbackend:1.16
-containercmd logs -f gamesbackend
+#containercmd container rm -f gamesbackend
+#containercmd run -d -it --name gamesbackend -e dbPassword_prod=${dbPassword_prod}  -p 9001:9000 localhost/gamesbackend:1.16
+#containercmd run -d -it --name gamesbackend --entrypoint /bin/bash localhost/gamesbackend:1.16
+#containercmd logs -f gamesbackend
 #docker exec -it gamesbackend /bin/bash
 
 #containercmd container rm -f gamesbackenddev
@@ -21,8 +21,8 @@ containercmd logs -f gamesbackend
 
 #containercmd container rm -f gamesapp
 #docker run -d -it --name gamesapp --entrypoint /bin/bash woifal/gamesapp:0.5
-#containercmd run -d -it --name gamesapp -e PORT=80 -p 80:80 -dt localhost/gamesapp:1.16
-#containercmd logs -f gamesapp
+containercmd run -d -it --name gamesapp -p 3001:3000 -dt localhost/gamesapp:2.3
+containercmd logs -f gamesapp
 
 #docker exec -it gamesbackend /bin/bash
 

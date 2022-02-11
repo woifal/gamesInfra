@@ -1,3 +1,3 @@
-#podman push localhost/gamesbackend:1.22 docker.io/woifal/gamesbackend:1.22
-podman push localhost/gamesapp:1.23 docker.io/woifal/gamesapp:1.23
+#podman push localhost/gamesbackend:2.0 docker.io/woifal/gamesbackend:2.0
+podman push localhost/gamesapp:2.1 docker.io/woifal/gamesapp:2.1
 #podman push localhost/gameswsserver:1.21 docker.io/woifal/gameswsserver:1.21

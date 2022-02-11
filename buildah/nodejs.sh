@@ -20,8 +20,10 @@ buildah run "$ctr1" -- apt-get install -y libnode-dev
 buildah run "$ctr1" -- apt-get install -y libnode64
 buildah run "$ctr1" -- apt-get install -y node-gyp
 buildah run "$ctr1" -- apt-get install -y npm
+
 #buildah run "$ctr1" -- apt-get update
 buildah run "$ctr1" -- npm -v
+buildah run "$ctr1" -- npm install -g npm@8.5.0
 
 buildah run "$ctr1" -- echo 'PREPARING FOR NODEJS 16'
 buildah run "$ctr1" -- echo 'PREPARING FOR NODEJS 16'

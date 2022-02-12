@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 #set -x
-
 BASEIMAGESTR="oraclient:1.16"
 
-IMAGESTR="gamesbackend:2.1"
+IMAGESTR="gamesbackend:{$GAMES_BACKEND_VERSION}"
 
 export ctr1=$(buildah from ${BASEIMAGESTR})
 echo "BUILDAH CONTAINER IS >${ctr1}<"

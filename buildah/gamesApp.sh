@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 #set -x
-
 BASEIMAGESTR="nodejsansible:1.5"
 
-IMAGESTR="gamesapp:2.4"
+IMAGESTR="gamesapp:{$GAMES_APP_VERSION}"
 
 export ctr1=$(buildah from ${BASEIMAGESTR})
 echo "BUILDAH CONTAINER IS >${ctr1}<"

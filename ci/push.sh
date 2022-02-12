@@ -1,3 +1,5 @@
-podman push localhost/gamesbackend:2.1 docker.io/woifal/gamesbackend:2.1
-podman push localhost/gamesapp:2.4 docker.io/woifal/gamesapp:2.4
-podman push localhost/gameswsserver:2.0 docker.io/woifal/gameswsserver:2.0
+. ../versions.sh
+
+podman push localhost/gamesbackend:{$GAMES_BACKEND_VERSION} docker.io/woifal/gamesbackend:{$GAMES_BACKEND_VERSION}
+podman push localhost/gamesapp:{$GAMES_APP_VERSION} docker.io/woifal/gamesapp:{$GAMES_APP_VERSION}}
+podman push localhost/gameswsserver:{$GAMES_WS_SERVER_VERSION} docker.io/woifal/gameswsserver:{$GAMES_WS_SERVER_VERSION}

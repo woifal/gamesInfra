@@ -1,3 +1,5 @@
+. ../versions.sh
+
 #packer build packer/packerPOCbaseImage.json
 
 #packer build packer/nodejs.json

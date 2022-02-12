@@ -3,7 +3,7 @@
 
 BASEIMAGESTR="nodejsansible:1.5"
 
-IMAGESTR="gamesapp:2.3"
+IMAGESTR="gamesapp:2.4"
 
 export ctr1=$(buildah from ${BASEIMAGESTR})
 echo "BUILDAH CONTAINER IS >${ctr1}<"

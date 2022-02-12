@@ -25,8 +25,8 @@
 
 cd buildah
 #. ./nodejs.sh
-#. ./gamesBackend.sh
-. ./gamesApp.sh
-#. ./gamesWSServer.sh
+. ./gamesBackend.sh
+#. ./gamesApp.sh
+. ./gamesWSServer.sh
 cd ..
 

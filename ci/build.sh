@@ -1,4 +1,4 @@
-. ../versions.sh
+. ./versions.sh
 
 #packer build packer/packerPOCbaseImage.json
 
@@ -27,8 +27,11 @@
 
 cd buildah
 #. ./nodejs.sh
-. ./gamesBackend.sh
-#. ./gamesApp.sh
-. ./gamesWSServer.sh
+#. ./gamesBackend.sh
+#. ./gamesWSServer.sh
+
+#. ./gamesAppBase.sh
+. ./gamesApp.sh
+
 cd ..
 

@@ -3,7 +3,7 @@
 
 BASEIMAGESTR="ubuntu:20.04"
 
-IMAGESTR="nodejsansible:1.5"
+IMAGESTR="nodejsansible:${NODE_JS_BASE_VERSION}"
 
 export ctr1=$(buildah from ${BASEIMAGESTR})
 echo "BUILDAH CONTAINER IS >${ctr1}<"
@@ -23,7 +23,7 @@ buildah run "$ctr1" -- apt-get install -y npm
 
 #buildah run "$ctr1" -- apt-get update
 buildah run "$ctr1" -- npm -v
-buildah run "$ctr1" -- npm install -g npm@8.5.0
+buildah run "$ctr1" -- npm install -g npm@8.5.1
 
 buildah run "$ctr1" -- echo 'PREPARING FOR NODEJS 16'
 buildah run "$ctr1" -- echo 'PREPARING FOR NODEJS 16'
@@ -39,6 +39,3 @@ buildah run "$ctr1" -- echo 'NODE VERSION'
 buildah run "$ctr1" -- node --version
 
 buildah commit "$ctr1" "${IMAGESTR}"
-
-#buildah push ${IMAGESTR} docker://docker.io/woifal/${IMAGESTR}
-

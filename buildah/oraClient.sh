@@ -12,10 +12,8 @@ buildah config --env DEBIAN_FRONTEND=noninteractive "$ctr1"
 
 
 echo "COPYING SOURCES.."
-echo "COPYING SOURCES.."
 buildah copy "$ctr1" "../files/instantclient-basic-linux.x64-21.1.0.0.0.zip" "/tmp/instantclient-basic-linux.x64-21.1.0.0.0.zip"
 
-echo "INSTALLING PACKAGES"
 echo "INSTALLING PACKAGES"
 buildah run "$ctr1" -- apt-get install -y libaio1
 buildah run "$ctr1" -- apt-get install -y unzip
@@ -35,16 +33,13 @@ buildah run "$ctr1" -- echo 'export PATH=/tmp/instantclient_21_1:$PATH' >>~/.bas
 
 
 echo "COPYING SOURCES.."
-echo "COPYING SOURCES.."
 buildah copy "$ctr1" "../files/Wallet_gamesBackend.zip" "/tmp/Wallet_gamesBackend.zip"
 
-echo "INSTALLING WALLET.."
 echo "INSTALLING WALLET.."
 buildah run "$ctr1" -- cp /tmp/Wallet_gamesBackend.zip /tmp/instantclient_21_1/network/admin/.
 buildah config --workingdir /tmp/instantclient_21_1/network/admin "$ctr1"
 buildah run "$ctr1" -- unzip -o Wallet_gamesBackend.zip
 
-echo "COMITTING.."
 echo "COMITTING.."
 buildah commit "$ctr1" "${IMAGESTR}"
 

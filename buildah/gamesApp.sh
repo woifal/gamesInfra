@@ -12,6 +12,12 @@ buildah config --env BROWSER= "$ctr1"
 
 #buildah run "$ctr1" -- apt-get update
 
+echo "LISTING 1.."
+buildah run "$ctr1" -- ls -ltra /tmp
+echo "LISTING 2.."
+buildah run "$ctr1" -- ls -ltra /tmp/gamesApp
+
+
 echo "COPYING SOURCES.."
 buildah copy "$ctr1" "../../gamesApp" "/tmp/gamesApp"
 echo "LISTING 1.."

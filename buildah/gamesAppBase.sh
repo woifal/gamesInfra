@@ -26,5 +26,8 @@ buildah config --workingdir /tmp/gamesApp "$ctr1"
 echo "INSTALLING.."
 buildah run "$ctr1" -- npm install
 
+echo "INSTALLING SERVE.."
+npm install -g serve
+
 echo "COMITTING.."
 buildah commit "$ctr1" "${IMAGESTR}"

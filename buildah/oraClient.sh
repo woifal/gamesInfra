@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #set -x
 
-BASEIMAGESTR="nodejsansible:1.5"
+BASEIMAGESTR="nodejsansible:2.0"
 
 IMAGESTR="oraclient:1.16"
 

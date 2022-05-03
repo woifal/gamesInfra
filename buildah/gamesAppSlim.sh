@@ -21,6 +21,8 @@ buildah config --workingdir /tmp/gamesApp "$ctr1"
 
 echo "INSTALLING SERVE.."
 buildah run "$ctr1" -- npm install -g serve
+echo "SERVE VERSION.."
+buildah run "$ctr1" -- serve -v
 echo "LISTING 5.."
 buildah run "$ctr1" -- ls -ltra /tmp/gamesApp
 

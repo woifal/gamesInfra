@@ -1,4 +1,4 @@
-. ../versions.sh
+. ./versions.sh
 
 alias containercmd=podman
 
@@ -15,9 +15,9 @@ containercmd logs -f gamesbackend
 #containercmd run -d -it --name gamesbackenddev -e dbPassword_dev=${dbPassword_dev}  -p 9001:9000 woifal/gamesbackend_dev:1.8
 #docker exec -it gamesbackend /bin/bash
 
-containercmd container rm -f gameswsserver
-containercmd run -d -it --name gameswsserver -p 9002:8044 woifal/gameswsserver:${GAMES_WS_SERVER_VERSION}
-docker exec -it gamesbackend /bin/bash
+#containercmd container rm -f gameswsserver
+#containercmd run -d -it --name gameswsserver -p 9002:8044 woifal/gameswsserver:${GAMES_WS_SERVER_VERSION}
+#docker exec -it gamesbackend /bin/bash
 
 containercmd container rm -f gamesapp
 #containercmd run -d -it --name gamesapp -p 3001:3000 -dt localhost/gamesapp:${GAMES_APP_VERSION}

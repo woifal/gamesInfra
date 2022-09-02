@@ -28,9 +28,10 @@
 cd buildah
 #. ./nodejs.sh
 #. ./oraClient.sh
-. ./gamesBackend.sh
+#. ./gamesBackend.sh
 #. ./gamesWSServer.sh
-. ./gamesAppSlim.sh
+#. ./gamesAppSlim.sh
+. ./gamesNginx.sh
 
 
 #. ./gamesAppBase.sh

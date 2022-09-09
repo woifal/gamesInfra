@@ -6,9 +6,10 @@ alias containercmd=podman
 #sudo iptables -I INPUT -m state --state NEW -p tcp --dport 9001 -j ACCEPT
 #sudo iptables -I INPUT -m state --state NEW -p tcp --dport 9002 -j ACCEPT
 
-containercmd container rm -f gamesbackend
-containercmd run -d -it --name gamesbackend -e dbPassword_prod=${dbPassword_prod}  -p 9001:9000 localhost/gamesbackend:${GAMES_BACKEND_VERSION}
-containercmd logs -f gamesbackend
+##containercmd container rm -f gamesbackend
+##containercmd run -d -it --name gamesbackend -e dbPassword_prod=${dbPassword_prod}  -p 9001:9000 localhost/gamesbackend:${GAMES_BACKEND_VERSION}
+##containercmd logs -f gamesbackend
+
 #docker exec -it gamesbackend /bin/bash
 
 #containercmd container rm -f gamesbackenddev
@@ -19,11 +20,19 @@ containercmd logs -f gamesbackend
 #containercmd run -d -it --name gameswsserver -p 9002:8044 woifal/gameswsserver:${GAMES_WS_SERVER_VERSION}
 #docker exec -it gamesbackend /bin/bash
 
-containercmd container rm -f gamesapp
+##containercmd container rm -f gamesapp
 #containercmd run -d -it --name gamesapp -p 3001:3000 -dt localhost/gamesapp:${GAMES_APP_VERSION}
-containercmd run -d -it --name gamesapp -p 3001:3000 -dt localhost/gamesappslim:${GAMES_APP_VERSION}
-containercmd logs -f gamesapp
+##containercmd run -d -it --name gamesapp -p 3001:3000 -dt localhost/gamesappslim:${GAMES_APP_VERSION}
+##containercmd logs -f gamesapp
 
 #docker exec -it gamesbackend /bin/bash
+
+containercmd container rm -f gamesnginx_letsencrypt
+containercmd run --rm \
+    --env "NGINX_PORT=8080" \
+    --env "NGINX_HOST=localfoo2.com" \
+    --env "TARGET_IP=localfoo.com" \
+    -it -p 8111:8080 --name gamesnginx_letsencrypt gamesnginx_letsencrypt:${GAMES_NGINX_VERSION}
+    
 
 

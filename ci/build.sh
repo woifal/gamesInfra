@@ -30,8 +30,9 @@ cd buildah
 #. ./oraClient.sh
 #. ./gamesBackend.sh
 #. ./gamesWSServer.sh
-#. ./gamesAppSlim.sh
-. ./gamesNginx.sh
+. ./gamesAppSlim.sh
+#. ./gamesNginx.sh
+#. ./gamesNginx_letsencrypt.sh
 
 
 #. ./gamesAppBase.sh

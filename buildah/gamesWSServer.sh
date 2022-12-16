@@ -26,3 +26,5 @@ buildah config --entrypoint "npm run start" "$ctr1"
 echo "COMITTING.."
 buildah commit "$ctr1" "${IMAGESTR}"
 
+# Transfer/Make-available to docker..
+buildah push ${IMAGESTR} docker-daemon:${IMAGESTR}

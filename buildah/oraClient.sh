@@ -44,4 +44,5 @@ echo "COMITTING.."
 buildah commit "$ctr1" "${IMAGESTR}"
 
 
-#buildah push ${IMAGESTR} docker://docker.io/woifal/${IMAGESTR}
+# Transfer/Make-available to docker..
+buildah push ${IMAGESTR} docker-daemon:${IMAGESTR}

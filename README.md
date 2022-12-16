@@ -15,4 +15,3 @@ podman login
 ### uses podman
 . ./ci/run.sh
 
-

@@ -1,6 +1,6 @@
 . ./versions.sh
 
-alias containercmd=podman
+alias containercmd=docker
 
 # !!!!
 #sudo iptables -I INPUT -m state --state NEW -p tcp --dport 9001 -j ACCEPT
@@ -26,13 +26,4 @@ alias containercmd=podman
 ##containercmd logs -f gamesapp
 
 #docker exec -it gamesbackend /bin/bash
-
-containercmd container rm -f gamesnginx_letsencrypt
-containercmd run --rm \
-    --env "NGINX_PORT=8080" \
-    --env "NGINX_HOST=localfoo2.com" \
-    --env "TARGET_IP=localfoo.com" \
-    -it -p 8111:8080 --name gamesnginx_letsencrypt gamesnginx_letsencrypt:${GAMES_NGINX_VERSION}
-    
-
 
